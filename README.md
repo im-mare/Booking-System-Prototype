@@ -1,1 +1,1 @@
-# GIC-Cinema
+# Booking prototype
