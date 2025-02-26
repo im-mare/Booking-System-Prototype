@@ -41,6 +41,7 @@ class CinemaBookingSystem:
                         "> "
                 )
                 
+                # Validate [Title] [Row] [SeatsPerRow], including titles with spaces and digits
                 match = re.match(r'(.+?)\s+(\d+)\s+(\d+)$', movie_info)
                 if not match:
                     raise ValueError("Invalid input format")
@@ -49,6 +50,7 @@ class CinemaBookingSystem:
                 no_of_rows = int(match.group(2))
                 seats_per_row = int(match.group(3))
                 
+                # Assumes that there's a minimum of 5 rows and seats, not given in the exercise
                 if 5 <= no_of_rows <= 26 and 5 <= seats_per_row <= 50:
                         self.movie_title = movie_title
                         self.no_of_rows = no_of_rows
@@ -221,6 +223,7 @@ class CinemaBookingSystem:
                                 "> "
                             )
                             if seat_change_response:
+                                # Validate seat position format
                                 match = re.match(r"([A-Z]+)(\d+)", seat_change_response)
                                 if match:
                                     self.change_seating(match, no_of_tickets)
